@@ -36,7 +36,10 @@ class Ball(GameSprite):
         self.rect.y += self.speed_y
 
         if sprite.collide_rect(racket1, self) or sprite.collide_rect(racket2, self):
-            self.speed_x *= -1
+            if self.rect.x > racket2.rect.centerx-25 or self.rect.x < racket1.rect.centerx-25:
+                pass
+            else:
+                self.speed_x *= -1
 
         if self.rect.y > win_height-50 or self.rect.y < 0:
             self.speed_y *= -1
